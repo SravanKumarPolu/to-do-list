@@ -19,13 +19,31 @@ const TodoWrapper: React.FC = () => {
       ...todos,
       { id: uuidv4(), task: todo, completed: false, isEditing: false },
     ]);
-    console.log(todos);
+  };
+
+  const toggleComplete = (id: string) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
+  const deleteTodo = (id: string) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   return (
     <div>
       <TodoForm addTodo={addTodo} />
-      <Todo />
+      {todos.map((todo, index) => (
+        <Todo
+          key={index}
+          task={todo}
+          toggleComplete={() => toggleComplete(todo.id)}
+          deleteTodo={() => deleteTodo(todo.id)}
+        />
+      ))}
     </div>
   );
 };

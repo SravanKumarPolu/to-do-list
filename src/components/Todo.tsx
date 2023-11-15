@@ -1,19 +1,27 @@
-import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
-import { faTrash } from "@fortawesome/free-solid-svg-icons/faTrash";
-type Props = {};
+import { faPenSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 
-const todo = (props: Props) => {
+type Props = {
+  task: {
+    id: string;
+    task: string;
+    completed: boolean;
+    isEditing: boolean;
+  };
+  toggleComplete: (id: string) => void;
+  deleteTodo: (id: string) => void;
+};
+
+const Todo: React.FC<Props> = ({ task, toggleComplete, deleteTodo }) => {
   return (
     <div className="flex flex-row ml-4 p-2 justify-between">
-      <p>Go to school</p>
+      <p onClick={() => toggleComplete(task.id)}>{task.task}</p>
       <div className="flex flex-row gap-1">
-        <FontAwesomeIcon icon={faPenToSquare} />
-        <FontAwesomeIcon icon={faTrash} />
+        <FontAwesomeIcon icon={faPenSquare} />
+        <FontAwesomeIcon icon={faTrash} onClick={() => deleteTodo(task.id)} />
       </div>
     </div>
   );
 };
 
-export default todo;
+export default Todo;
