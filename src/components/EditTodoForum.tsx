@@ -26,7 +26,7 @@ const EditTodoForm = ({ editTodo, task }: Props) => {
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        <button type="submit" className="todo-btn">
+        <button type="submit" className="todo-btn text-white">
           Update Task
         </button>
       </form>
