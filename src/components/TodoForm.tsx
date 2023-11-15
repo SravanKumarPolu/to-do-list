@@ -24,7 +24,7 @@ const TodoForm: React.FC<Props> = ({ addTodo }) => {
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        <button type="submit" className="todo-btn">
+        <button type="submit" className="todo-btn text-white">
           Add Task
         </button>
       </form>
