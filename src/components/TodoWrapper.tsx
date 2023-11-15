@@ -53,7 +53,7 @@ const TodoWrapper: React.FC = () => {
   };
 
   return (
-    <div className="text-white flex  flex-col  w-[50rem] items-center h-[40rem] m-4 bg-slate-500">
+    <div className="  flex  flex-col  w-[50rem] items-center h-[40rem] m-4 bg-slate-500">
       <h2 className="text-white">To-do-list</h2>
       <TodoForm addTodo={addTodo} />
       {todos.map((todo) =>

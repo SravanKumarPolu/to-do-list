@@ -20,9 +20,13 @@ const Todo: React.FC<Props> = ({
   editTodo,
 }) => {
   return (
-    <div className="flex flex-row ml-4 p-2 justify-between">
-      <p onClick={() => toggleComplete(task.id)}>{task.task}</p>
-      <div className="flex flex-row gap-1">
+    <div className="flex flex-col md:flex-row justify-between items-center w-full px-4 py-2 bg-gray-800 text-white mb-2">
+      <p
+        className="flex-grow h-8 cursor-pointer mb-2 md:mb-0 md:mr-2 md:mb-0"
+        onClick={() => toggleComplete(task.id)}>
+        {task.task}
+      </p>
+      <div className="flex gap-2">
         <FontAwesomeIcon icon={faPenSquare} onClick={() => editTodo(task.id)} />
         <FontAwesomeIcon icon={faTrash} onClick={() => deleteTodo(task.id)} />
       </div>
