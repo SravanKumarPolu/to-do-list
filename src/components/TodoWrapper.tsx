@@ -53,8 +53,8 @@ const TodoWrapper: React.FC = () => {
   };
 
   return (
-    <div className="  flex  flex-col  w-[50rem] items-center h-[40rem] m-4 bg-slate-500">
-      <h2 className="text-white">To-do-list</h2>
+    <div className="flex flex-col h-[32rem] items-center mx-auto mt-8 p-4 bg-slate-500 max-w-[50rem]">
+      <h1 className="text-white text-2xl font-semibold mb-4">To-do List</h1>
       <TodoForm addTodo={addTodo} />
       {todos.map((todo) =>
         todo.isEditing ? (
